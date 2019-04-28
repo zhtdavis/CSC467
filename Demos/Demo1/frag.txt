@@ -1,0 +1,24 @@
+!!ARBfp1.0
+TEMP temp;
+TEMP temp_var_0;
+MOV temp_var_0,{1.0, 1.0, 1.0, 1.0};
+TEMP temp_var_1;
+MOV temp_var_1,temp_var_0;
+SUB temp_var_0,{0.0, 0.0, 0.0, 0.0},temp_var_0;
+TEMP temp_var_2;
+MUL temp_var_2,fragment.color.x,fragment.position.x;
+CMP temp.x,temp_var_0,temp_var_2,temp.x;
+TEMP temp_var_3;
+MUL temp_var_3,fragment.color.y,fragment.position.y;
+CMP temp.y,temp_var_0,temp_var_3,temp.y;
+CMP temp.z,temp_var_0,fragment.color.z,temp.z;
+TEMP temp_var_4;
+MUL temp_var_4,fragment.color.w,fragment.position.x;
+TEMP temp_var_5;
+MUL temp_var_5,temp_var_4,fragment.position.y;
+CMP temp.w,temp_var_0,temp_var_5,temp.w;
+MOV temp_var_0,temp_var_1;
+SUB temp_var_0,temp_var_0,{1.0, 1.0, 1.0, 1.0};
+CMP temp,temp_var_0,fragment.color,temp;
+MOV result.color,temp;
+END
